@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
 
-// Determine API base at runtime via env.js (Render) fallback to localhost.
-const API_ROOT = (window as any).__env?.API_BASE_URL || 'http://localhost:8080/api';
-const BASE_URL = `${API_ROOT}/books`; // final collection endpoint
+// Determine backend origin at runtime; env.js supplies origin without /api.
+const BACKEND_ORIGIN = (window as any).__env?.API_BASE_URL || 'http://localhost:8080';
+const BASE_URL = `${BACKEND_ORIGIN}/api/books`;
+// Debug log (remove in production if desired)
+console.log('[BookService] Using BASE_URL:', BASE_URL);
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
