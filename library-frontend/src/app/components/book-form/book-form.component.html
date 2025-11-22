@@ -1,0 +1,31 @@
+<section class="form-container" *ngIf="!loading">
+  <h2>{{ id ? 'Edit Book' : 'Add Book' }}</h2>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <label>
+      Title
+      <input formControlName="title" />
+    </label>
+    <label>
+      Author
+      <input formControlName="author" />
+    </label>
+    <label>
+      ISBN
+      <input formControlName="isbn" />
+    </label>
+    <label>
+      Year
+      <input type="number" formControlName="year" />
+    </label>
+    <label>
+      Description
+      <textarea formControlName="description"></textarea>
+    </label>
+    <div class="actions">
+      <button type="submit" [disabled]="form.invalid">Save</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+  <div class="error" *ngIf="error">{{ error }}</div>
+</section>
+<div *ngIf="loading">Loading...</div>

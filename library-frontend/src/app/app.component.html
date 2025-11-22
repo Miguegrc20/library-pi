@@ -1,0 +1,13 @@
+<header class="header">
+  <h1>{{ title }}</h1>
+  <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen">☰</button>
+  <button class="theme-toggle" (click)="toggleDarkMode()" aria-label="Toggle dark mode" [attr.aria-pressed]="darkMode">{{ darkMode ? '🌙' : '☀️' }}</button>
+  <nav [class.open]="menuOpen">
+    <a routerLink="/books" routerLinkActive="active" (click)="menuOpen=false">Books</a>
+    <a routerLink="/books/new" routerLinkActive="active" (click)="menuOpen=false">Add Book</a>
+  </nav>
+</header>
+<main class="main fade-in">
+  <router-outlet></router-outlet>
+</main>
+<footer class="footer">Library CRUD demo · Angular + Spring Boot</footer>

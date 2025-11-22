@@ -1,0 +1,14 @@
+.list-container { max-width: 1100px; margin: 1rem auto; padding: 0 1rem; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+button { cursor: pointer; padding: .4rem .8rem; border: 1px solid #444; background:#fff; }
+button.danger { background:#ffe5e5; border-color:#cc0000; }
+.books-table { width:100%; border-collapse: collapse; }
+.books-table th, .books-table td { border:1px solid #ddd; padding:.5rem; font-size:.85rem; }
+.books-table th { background:#f5f5f5; text-align:left; }
+.actions button { margin-right:.25rem; }
+.error { color:#c00; margin:.5rem 0; }
+.empty { font-style: italic; }
+@media (max-width: 760px){
+  .books-table th:nth-child(5), .books-table td.desc { display:none; }
+  .books-table th, .books-table td { font-size:.75rem; }
+}

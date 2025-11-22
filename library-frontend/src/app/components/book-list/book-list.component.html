@@ -1,0 +1,37 @@
+<section class="list-container">
+  <div class="toolbar">
+    <h2>Books</h2>
+    <button (click)="add()">Add Book</button>
+  </div>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!loading && books.length" class="books-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Year</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of books">
+        <td>{{ b.title }}</td>
+        <td>{{ b.author }}</td>
+        <td>{{ b.isbn }}</td>
+        <td>{{ b.year }}</td>
+        <td class="desc">{{ b.description }}</td>
+        <td class="actions">
+          <button (click)="edit(b)">Edit</button>
+          <button class="danger" (click)="remove(b)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!loading && !books.length" class="empty">No books found.</p>
+</section>
