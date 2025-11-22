@@ -4,6 +4,8 @@ WORKDIR /app
 COPY pom.xml .
 COPY mvnw .
 COPY .mvn .mvn
+# Ensure mvnw has execute permission (Windows git may lose it)
+RUN chmod +x mvnw
 # Pre-fetch dependencies (layer caching)
 RUN ./mvnw -q dependency:go-offline
 COPY src src
